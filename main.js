@@ -62,7 +62,3 @@ for(let key in userTwo) {
   //console.log(userTwo.key); // undefined
 }
 
-const stuff = ['1', 'hello', 4, 5];
-for(let item in stuff) {
-  console.log(stuff[item]);
-}
