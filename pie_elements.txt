@@ -1,0 +1,13 @@
+Name
+Ingredients
+BAke Temp
+Drink Pairing
+Image Url
+Instructor (drop down)
+Ice Cream
+
+
+Cards
+Background Color change by instructor selection
+Suggest FlexBox
+Add Bootstrap
