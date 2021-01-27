@@ -1,4 +1,3 @@
-console.log("Connected");
 console.log('CONNECTED!');
 
 
@@ -73,8 +72,7 @@ const printToDom = (divID, textToPrint)  => {
 const pieBuilder = (taco) => {
   let domString = '';
   for(let i = 0; i < taco.length ; i++) {
-  console.log(domString);
-   domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
+  domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
         <div class="img-container" style="background-image: url('${taco[i].imageUrl}');"></div>
         <div class="card-body">
         <p class="card-text">${taco[i].name}</p>
@@ -117,16 +115,41 @@ const handleButtonClick = (e) => {
     }
   }
 }
+// C in "CRUD" Create
+const getFormInfo  = (e) => {
+    e.preventDefault();
+    console.log('form submitted');
+    const name = document.querySelector('#name').value;
+    const ingredients= document.querySelector('#ingredients').value;
+    const drinkPairing = document.querySelector('#drinkPairing').value;
+    const imageUrl = document.querySelector('#imageUrl').value;
+    const instructor = document.querySelector('#instructor').value;
+    const iceCream = document.querySelector('#iceCream').value;
+
+    const obj = {
+      name,
+      bakeTemp,
+      ingredients,
+      drinkPairing,
+      imageUrl,
+      instructor,
+      iceCream,
+    }
+    // Pushing new object to the pies array
+    pies.push(obj);
+
+    // Rebuilding the DOM
+    pieBuilder(pies);
+    document.querySelector('form').reset;
+}
 
 const buttonEvents = () => {
   document.querySelector('#All').addEventListener('click', handleButtonClick);
   document.querySelector('#Doc').addEventListener('click', handleButtonClick);
-  document.querySelector('#Aja').addEventListener('click', handleButtonClick);
-  document.querySelector('#Trinity').addEventListener('click', handleButtonClick);
-
-  }
-  
-  
+  document.querySelector('#Aja').addEventListener('click', handleButtonClick );
+  document.querySelector('#Trinity').addEventListener('click', handleButtonClick );
+  document.querySelector('form').addEventListener('submit', getFormInfo);
+} 
 
 const init = () => {
   buttonEvents();
