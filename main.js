@@ -69,6 +69,8 @@ const printToDom = (divID, textToPrint)  => {
   selectedDiv.innerHTML = textToPrint;
 }
 
+let filtered = false;
+
 const pieBuilder = (taco) => {
   let domString = '';
   for(let i = 0; i < taco.length ; i++) {
@@ -109,10 +111,13 @@ const handleButtonClick = (e) => {
       selectedPies.push(pies[i]);
     }
     if(buttonId === 'All') {
+      filtered = false;
       pieBuilder(pies);
     } else {
+      filtered = true;
       pieBuilder(selectedPies);
     }
+    console.log(filtered);
   }
 }
 // C in "CRUD" Create
@@ -143,12 +148,28 @@ const getFormInfo  = (e) => {
     document.querySelector('form').reset;
 }
 
+const deletePie = (e) => {
+  const targetType= e.target.type;
+  const targetId =  e.target.id;
+  console.log(targetType);
+
+  if(targetType === 'button') {
+  //Do Something
+  pies.splice(targetId, 1);
+  }
+} 
+
+
 const buttonEvents = () => {
   document.querySelector('#All').addEventListener('click', handleButtonClick);
   document.querySelector('#Doc').addEventListener('click', handleButtonClick);
   document.querySelector('#Aja').addEventListener('click', handleButtonClick );
   document.querySelector('#Trinity').addEventListener('click', handleButtonClick );
+  //Target delete button
+  document.querySelector('#pies').addEventListener('click', deletePie);
+
   document.querySelector('form').addEventListener('submit', getFormInfo);
+
 } 
 
 const init = () => {
