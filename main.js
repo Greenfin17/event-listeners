@@ -73,9 +73,11 @@ let filtered = false;
 
 const pieBuilder = (taco) => {
   let domString = '';
-  taco.forEach((item,i) => {
+  let i = 0;
+  for (let item of taco) {
+  //  console.log(`${item.name}, ${i}`);
   domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
-        <div class="img-container" style="background-image: url('${taco[i].imageUrl}');"></div>
+        <div class="img-container" style="background-image: url('${item.imageUrl}');"></div>
         <div class="card-body">
         <p class="card-text">${item.name}</p>
         <p class="card-text">${item.ingredients}</p>
@@ -85,7 +87,8 @@ const pieBuilder = (taco) => {
         <button type="button" class="btn btn-danger" id="${i}">Delete</button>
       </div>
       </div>`; 
-  });
+      i++;
+  };
    printToDom('#pies', domString);
 }
 
@@ -117,13 +120,11 @@ const handleButtonClick = (e) => {
       filtered = true;
       pieBuilder(selectedPies);
     }
-    console.log(filtered);
   }
 }
 // C in "CRUD" Create
 const getFormInfo  = (e) => {
     e.preventDefault();
-    console.log('form submitted');
     const name = document.querySelector('#name').value;
     const ingredients= document.querySelector('#ingredients').value;
     const drinkPairing = document.querySelector('#drinkPairing').value;
