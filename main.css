@@ -3,3 +3,12 @@ body {
   margin: 0;
   background-color: azure;
 }
+
+h1 {
+  text-align: center;
+}
+.img-container {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
