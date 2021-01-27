@@ -3,3 +3,21 @@ body {
   margin: 0;
   background-color: azure;
 }
+
+h1 {
+  text-align: center;
+}
+.img-container {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+}
+
+.pie_input {
+  margin: 20px 40px;
+}
+.pie-form {
+  width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}

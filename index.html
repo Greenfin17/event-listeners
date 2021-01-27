@@ -6,25 +6,69 @@
     <title>Event Listeners</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+    crossorigin="anonymous"
+  />
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
     <header>
-      <h1>Event Listeners</h1>
+      <h1>Pies</h1>
     </header>
     <div class="container mt-3 text-center">
-      <div id="instructor-buttons mt-3 text-center">
+      <div id="instructor-buttons">
         <button type="button" class="btn btn-danger" id="All">All</button>
-        <button type="button" class="btn btn-primary" id="doc">Dr. T</button>
+        <button type="button" class="btn btn-primary" id="Doc">Dr. T</button>
         <button type="button" class="btn btn-secondary" id="Aja">Aja</button>
         <button type="button" class="btn btn-success" id="Trinity">Trinity</button>
-        
       </div>
-      <div id="pies"></div>
-      <hr>
-      <div class="pie-form">
-         
-      </div>
-    <script src="main.js" async defer></script>
+    </div>
+    </div>
+      <div id="pies" class="d-flex flex-wrap justify-content-around"></div>
+    </div>
+    <!-- code by Dr. T for form below -->
+<div class="pie-form mb-5">
+      <h2 class="text-center">Add A Pie</h2>
+      <form id="pie-form">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" required>
+        </div>
+        <div class="mb-3">
+          <label for="ingredients" class="form-label">Ingredients</label>
+          <input type="text" class="form-control" id="ingredients" required>
+        </div>
+        <div class="mb-3">
+          <label for="bakeTemp" class="form-label">Bake Temp</label>
+          <input type="number" class="form-control" id="bakeTemp" required>
+        </div>
+        <div class="mb-3">
+          <label for="drinkPairing" class="form-label">Drink Pairing</label>
+          <input type="text" class="form-control" id="drinkPairing" required>
+        </div>
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label">Image Url</label>
+          <input type="url" class="form-control" id="imageUrl" required>
+        </div>
+        <div class="mb-3">
+          <label for="instructor" class="form-label">Instructor</label>
+          <select id="instructor" class="form-select" aria-label="Default select example" required>
+            <option value="">Select an Instructor</option>
+            <option value="Doc">Dr. T</option>
+            <option value="Aja">Aja</option>
+            <option value="Trinity">Trinity</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label for="iceCream" class="form-label">Ice Cream</label>
+          <input type="text" class="form-control" id="iceCream" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    <hr>
+        <script src="main.js" async defer></script>
   </body>
 </html>
