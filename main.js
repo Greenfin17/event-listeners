@@ -96,16 +96,13 @@ const handleButtonClick = (e) => {
   const buttonId = e.target.id;
 
   if(buttonId === 'Trinity') {
-    //DARK MODE
+    E
     document.querySelector('body').style.backgroundColor = '#000';
   } else if (buttonId === 'Doc') {
-    //LIGHT MODE
     document.querySelector('body').style.backgroundColor = '#fff';
   } else if (buttonId === 'Aja') {
-    //MEDIUM
     document.querySelector('body').style.backgroundColor = '#303030';
   } else if (buttonId === 'All') {
-    //DEFAULT
     document.querySelector('body').style.backgroundColor = 'rgb(175, 196, 175)';
   }
   const selectedPies = [];
@@ -122,7 +119,7 @@ const handleButtonClick = (e) => {
     }
   }
 }
-// C in "CRUD" Create
+
 const getFormInfo  = (e) => {
     e.preventDefault();
     const name = document.querySelector('#name').value;
@@ -141,13 +138,14 @@ const getFormInfo  = (e) => {
       instructor,
       iceCream,
     }
-    // Pushing new object to the pies array
+    
     pies.push(obj);
 
-    // Rebuilding the DOM
+    
     pieBuilder(pies);
     document.querySelector('form').reset;
 }
+
 
 const deletePie = (e) => {
   const targetType= e.target.type;
@@ -155,8 +153,7 @@ const deletePie = (e) => {
   console.log(targetType);
 
   if(targetType === 'button') {
-  //Do Something
-  pies.splice(targetId, 1);
+    pies.splice(targetId, 1);
   }
 } 
 
@@ -166,7 +163,7 @@ const buttonEvents = () => {
   document.querySelector('#Doc').addEventListener('click', handleButtonClick);
   document.querySelector('#Aja').addEventListener('click', handleButtonClick );
   document.querySelector('#Trinity').addEventListener('click', handleButtonClick );
-  //Target delete button
+
   document.querySelector('#pies').addEventListener('click', deletePie);
 
   document.querySelector('form').addEventListener('submit', getFormInfo);
