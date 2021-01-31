@@ -1,3 +1,4 @@
+console.log("Connected");
 console.log('CONNECTED!');
 
 
@@ -69,12 +70,11 @@ const printToDom = (divID, textToPrint)  => {
   selectedDiv.innerHTML = textToPrint;
 }
 
-let filtered = false;
-
 const pieBuilder = (taco) => {
   let domString = '';
   for(let i = 0; i < taco.length ; i++) {
-  domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
+  console.log(domString);
+   domString += `<div class="card my-2" style="width: 18rem;" id=${i}>
         <div class="img-container" style="background-image: url('${taco[i].imageUrl}');"></div>
         <div class="card-body">
         <p class="card-text">${taco[i].name}</p>
@@ -93,12 +93,16 @@ const handleButtonClick = (e) => {
   const buttonId = e.target.id;
 
   if(buttonId === 'Trinity') {
+    //DARK MODE
     document.querySelector('body').style.backgroundColor = '#000';
   } else if (buttonId === 'Doc') {
+    //LIGHT MODE
     document.querySelector('body').style.backgroundColor = '#fff';
   } else if (buttonId === 'Aja') {
+    //MEDIUM
     document.querySelector('body').style.backgroundColor = '#303030';
   } else if (buttonId === 'All') {
+    //DEFAULT
     document.querySelector('body').style.backgroundColor = 'rgb(175, 196, 175)';
   }
   const selectedPies = [];
@@ -107,64 +111,22 @@ const handleButtonClick = (e) => {
       selectedPies.push(pies[i]);
     }
     if(buttonId === 'All') {
-      filtered = false;
       pieBuilder(pies);
     } else {
-      filtered = true;
       pieBuilder(selectedPies);
     }
-    console.log(filtered);
   }
 }
-
-const getFormInfo  = (e) => {
-    e.preventDefault();
-    console.log('form submitted');
-    const name = document.querySelector('#name').value;
-    const ingredients= document.querySelector('#ingredients').value;
-    const drinkPairing = document.querySelector('#drinkPairing').value;
-    const imageUrl = document.querySelector('#imageUrl').value;
-    const instructor = document.querySelector('#instructor').value;
-    const iceCream = document.querySelector('#iceCream').value;
-
-    const obj = {
-      name,
-      bakeTemp,
-      ingredients,
-      drinkPairing,
-      imageUrl,
-      instructor,
-      iceCream,
-    }
-    
-    pies.push(obj);
-
- 
-    pieBuilder(pies);
-    document.querySelector('form').reset;
-}
-
-const deletePie = (e) => {
-  const targetType= e.target.type;
-  const targetId =  e.target.id;
-  console.log(targetType);
-
-  if(targetType === 'button') {
-    pies.splice(targetId, 1);
-  }
-} 
-
 
 const buttonEvents = () => {
   document.querySelector('#All').addEventListener('click', handleButtonClick);
   document.querySelector('#Doc').addEventListener('click', handleButtonClick);
-  document.querySelector('#Aja').addEventListener('click', handleButtonClick );
-  document.querySelector('#Trinity').addEventListener('click', handleButtonClick );
-  document.querySelector('#pies').addEventListener('click', deletePie);
+  document.querySelector('#Aja').addEventListener('click', handleButtonClick);
+  document.querySelector('#Trinity').addEventListener('click', handleButtonClick);
 
-  document.querySelector('form').addEventListener('submit', getFormInfo);
-
-} 
+  }
+  
+  
 
 const init = () => {
   buttonEvents();
